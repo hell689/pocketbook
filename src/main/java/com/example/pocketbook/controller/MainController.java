@@ -9,6 +9,8 @@ public class MainController {
 
     @GetMapping("/")
     public String greeting(Model model){
+        String message = "Guest";
+        model.addAttribute("message", message);
         return "greeting";
     }
 
