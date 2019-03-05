@@ -29,4 +29,10 @@ public class ReferenceBookController {
         return "redirect:/refbook";
     }
 
+    @PostMapping("refbook/del")
+    public String referenceBookDel(@RequestParam Long id){
+        bookRepo.deleteById(id);
+        return "redirect:/refbook";
+    }
+
 }

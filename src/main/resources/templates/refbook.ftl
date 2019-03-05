@@ -14,7 +14,11 @@
     <div>Список справочников:</div>
     <#list refbooks as refbook>
         <div>
-            ${refbook.name}
+            <form action="refbook/del" method="post">
+                ${refbook.name}
+                <input type="hidden" name="id" value="${refbook.id}">
+                <button type="submit">Удалить</button>
+            </form>
         </div>
     <#else>
         Справочников не найдено
