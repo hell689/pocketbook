@@ -19,7 +19,7 @@
 
             <tr>
                 <form action="/refbook/delrecord" method="post">
-                    <td><a href="/refbook/${refrecord.id}">${refrecord.name}</a></td>
+                    <td><a href="/refbook/refrecord/${refrecord.id}">${refrecord.name}</a></td>
                     <input type="hidden" name="id" value="${refrecord.id}">
                     <input type="hidden" name="idrefbook" value="${refbook.id}">
                     <td><button type="submit">Удалить</button></td>
