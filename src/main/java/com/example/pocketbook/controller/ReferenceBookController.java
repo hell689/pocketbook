@@ -2,10 +2,12 @@ package com.example.pocketbook.controller;
 
 import com.example.pocketbook.domain.ReferenceBook;
 import com.example.pocketbook.repos.ReferenceBookRepo;
+import com.example.pocketbook.repos.ReferenceRecordRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -13,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class ReferenceBookController {
     @Autowired
     private ReferenceBookRepo bookRepo;
+    @Autowired
+    private ReferenceRecordRepo recordRepo;
 
     @GetMapping("/refbook")
     public String referenceBookList(Model model){
@@ -20,11 +24,22 @@ public class ReferenceBookController {
         return "refbook";
     }
 
-    @PostMapping("/refbook/add")
-    public String referenceBookAdd(@RequestParam String name){
-        ReferenceBook referenceBook = new ReferenceBook(name);
+    @GetMapping("/refbook/{referenceBook}")
+    public String referenceBookFromId(
+            @PathVariable ReferenceBook referenceBook,
+            Model model
+    ){
+        model.addAttribute("refbook", referenceBook);
+        model.addAttribute("refrecords", recordRepo.findByReferenceBook(referenceBook));
+        return "refbookedit";
+    }
 
-        bookRepo.save(referenceBook);
+    @PostMapping("refbook/add")
+    public String referenceBookAdd(@RequestParam String name){
+        if (bookRepo.findByName(name) == null){
+            ReferenceBook referenceBook = new ReferenceBook(name);
+            bookRepo.save(referenceBook);
+        }
 
         return "redirect:/refbook";
     }

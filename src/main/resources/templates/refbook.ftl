@@ -4,7 +4,7 @@
 <h2>Справочники</h2>
 <div>
     Добавить новый справочник
-    <form action="refbook/add" method="post">
+    <form action="/refbook/add" method="post">
         <input type="text" name="name" placeholder="Название справочника"/>
         <button type="submit">Создать</button>
     </form>
@@ -12,17 +12,22 @@
 <br><br>
 <div>
     <div>Список справочников:</div>
-    <#list refbooks as refbook>
+    <table>
+        <#list refbooks as refbook>
         <div>
-            <form action="refbook/del" method="post">
-                ${refbook.name}
-                <input type="hidden" name="id" value="${refbook.id}">
-                <button type="submit">Удалить</button>
-            </form>
+
+                <tr>
+                    <form action="/refbook/del" method="post">
+                        <td><a href="/refbook/${refbook.id}">${refbook.name}</a></td>
+                        <input type="hidden" name="id" value="${refbook.id}">
+                        <td><button type="submit">Удалить</button></td>
+                    </form>
+                </tr>
         </div>
     <#else>
         Справочников не найдено
     </#list>
+    </table>
 </div>
 
 </@c.page>
