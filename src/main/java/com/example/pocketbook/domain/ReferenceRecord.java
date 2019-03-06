@@ -14,6 +14,9 @@ public class ReferenceRecord {
     @JoinColumn(name = "refbook_id")
     private ReferenceBook referenceBook;
 
+    public ReferenceRecord() {
+    }
+
     public ReferenceRecord(String name, ReferenceBook referenceBook) {
         this.name = name;
         this.referenceBook = referenceBook;

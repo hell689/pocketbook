@@ -1,6 +1,11 @@
 <#import "parts/common.ftl" as c>
 
 <@c.page>
+<#if errorMessage??>
+    <div class="alert alert-danger" role="alert">
+        ${errorMessage}
+    </div>
+</#if>
 <h2>Справочники</h2>
 <div>
     Добавить новый справочник
