@@ -93,4 +93,31 @@ public class ReferenceBookController {
         return "redirect:/refbook/" + idrefbook;
     }
 
+    @GetMapping("/refbook/refrecord/{referenceRecord}")
+    public String referenceRecordEdit(
+            @PathVariable ReferenceRecord referenceRecord,
+            Model model
+    ){
+        model.addAttribute("refrecord", referenceRecord);
+        return "refrecordedit";
+    }
+
+    @PostMapping("refbook/refrecord/save")
+    public String referenceRecordSave(
+            @RequestParam Long idrefrecord,
+            @RequestParam String name,
+            Model model
+    ){
+        ReferenceRecord referenceRecord = recordRepo.findById(idrefrecord).
+                            orElseThrow(() -> new NoSuchElementException());
+        if (!name.isEmpty() && !name.equals(referenceRecord.getName())) {
+            referenceRecord.setName(name);
+            recordRepo.save(referenceRecord);
+        }
+        ReferenceBook referenceBook = referenceRecord.getReferenceBook();
+        model.addAttribute("refbook", referenceBook);
+        model.addAttribute("refrecords", referenceBook.getReferenceRecords());
+        return "refbookedit";
+    }
+
 }
