@@ -13,22 +13,24 @@
     </div>
 <br/>
     <div>Список элементов Справочника:</div>
-    <table>
-        <#list refrecords as refrecord>
-        <div>
-
-            <tr>
-                <form action="/refbook/delrecord" method="post">
-                    <td><a href="/refbook/refrecord/${refrecord.id}">${refrecord.name}</a></td>
-                    <input type="hidden" name="id" value="${refrecord.id}">
-                    <input type="hidden" name="idrefbook" value="${refbook.id}">
-                    <td><button type="submit">Удалить</button></td>
-                </form>
-            </tr>
+    <div class order>
+    <div class="header row">
+        <div class="col-md-6" data-orderby="element">Элемент</div>
+    </div>
+        <div class="list">
+            <#list refrecords as refrecord>
+            <div class="col-md-6"><span data-name="element">
+                        <form action="/refbook/delrecord" method="post">
+                            <td><a href="/refbook/refrecord/${refrecord.id}">${refrecord.name}</a></td>
+                            <input type="hidden" name="id" value="${refrecord.id}">
+                            <input type="hidden" name="idrefbook" value="${refbook.id}">
+                            <td><button type="submit">Удалить</button></td>
+                        </form>
+            </div>
+            <#else>
+            Элементов не найдено
+            </#list>
         </div>
-        <#else>
-        Элементов не найдено
-    </#list>
-    </table>
+    </div>
 </div>
 </@c.page>
