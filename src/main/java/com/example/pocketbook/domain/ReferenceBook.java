@@ -1,6 +1,7 @@
 package com.example.pocketbook.domain;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -12,7 +13,7 @@ public class ReferenceBook {
     private String name;
 
     @OneToMany(mappedBy = "referenceBook", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Set<ReferenceRecord> referenceRecords;
+    private List<ReferenceRecord> referenceRecords;
 
     public ReferenceBook() {
     }
@@ -37,11 +38,11 @@ public class ReferenceBook {
         this.name = name;
     }
 
-    public Set<ReferenceRecord> getReferenceRecords() {
+    public List<ReferenceRecord> getReferenceRecords() {
         return referenceRecords;
     }
 
-    public void setReferenceRecords(Set<ReferenceRecord> referenceRecords) {
+    public void setReferenceRecords(List<ReferenceRecord> referenceRecords) {
         this.referenceRecords = referenceRecords;
     }
 

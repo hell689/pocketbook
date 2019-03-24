@@ -1,8 +1,10 @@
 package com.example.pocketbook.controller;
 
 import com.example.pocketbook.domain.ReferenceBook;
+import com.example.pocketbook.domain.ReferenceRecord;
 import com.example.pocketbook.repos.ReferenceBookRepo;
 import com.example.pocketbook.repos.ReferenceRecordRepo;
+import com.example.pocketbook.util.comparators.RefRecordComparator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,6 +13,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.sql.Ref;
+import java.util.Collections;
+import java.util.List;
 import java.util.NoSuchElementException;
 @Controller
 public class ReferenceBookController {
@@ -21,7 +26,9 @@ public class ReferenceBookController {
 
     @GetMapping("/refbook")
     public String referenceBookList(Model model){
-        model.addAttribute("refbooks", bookRepo.findAll());
+        List<ReferenceBook> refBooks = (List<ReferenceBook>) bookRepo.findAll();
+        refBooks.sort(((o1, o2) -> o1.getName().compareToIgnoreCase(o2.getName())));
+        model.addAttribute("refbooks", refBooks);
         return "refbook";
     }
 
@@ -31,7 +38,9 @@ public class ReferenceBookController {
             Model model
     ){
         model.addAttribute("refbook", referenceBook);
-        model.addAttribute("refrecords", referenceBook.getReferenceRecords());
+        List<ReferenceRecord> refRecords = referenceBook.getReferenceRecords();
+        refRecords.sort(new RefRecordComparator());
+        model.addAttribute("refrecords", refRecords);
         return "refbookedit";
     }
 
