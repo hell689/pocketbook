@@ -1,7 +1,7 @@
 package com.example.pocketbook.controller;
 
-import com.example.pocketbook.domain.ReferenceBook;
-import com.example.pocketbook.domain.ReferenceRecord;
+import com.example.pocketbook.domain.Reference.ReferenceBook;
+import com.example.pocketbook.domain.Reference.ReferenceRecord;
 import com.example.pocketbook.repos.ReferenceBookRepo;
 import com.example.pocketbook.repos.ReferenceRecordRepo;
 import org.springframework.beans.factory.annotation.Autowired;

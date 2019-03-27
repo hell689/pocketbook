@@ -1,7 +1,7 @@
 package com.example.pocketbook.controller;
 
-import com.example.pocketbook.domain.ReferenceBook;
-import com.example.pocketbook.domain.ReferenceRecord;
+import com.example.pocketbook.domain.Reference.ReferenceBook;
+import com.example.pocketbook.domain.Reference.ReferenceRecord;
 import com.example.pocketbook.repos.ReferenceBookRepo;
 import com.example.pocketbook.repos.ReferenceRecordRepo;
 import com.example.pocketbook.util.comparators.RefRecordComparator;
@@ -13,8 +13,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.sql.Ref;
-import java.util.Collections;
 import java.util.List;
 import java.util.NoSuchElementException;
 @Controller

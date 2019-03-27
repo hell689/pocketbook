@@ -1,6 +1,6 @@
 package com.example.pocketbook.util.comparators;
 
-import com.example.pocketbook.domain.ReferenceRecord;
+import com.example.pocketbook.domain.Reference.ReferenceRecord;
 
 import java.util.Comparator;
 

@@ -1,4 +1,4 @@
-package com.example.pocketbook.domain;
+package com.example.pocketbook.domain.Reference;
 
 import javax.persistence.*;
 

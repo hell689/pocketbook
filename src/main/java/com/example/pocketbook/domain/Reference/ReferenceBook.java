@@ -1,8 +1,7 @@
-package com.example.pocketbook.domain;
+package com.example.pocketbook.domain.Reference;
 
 import javax.persistence.*;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 public class ReferenceBook {

@@ -1,7 +1,7 @@
 package com.example.pocketbook.repos;
 
-import com.example.pocketbook.domain.ReferenceBook;
-import com.example.pocketbook.domain.ReferenceRecord;
+import com.example.pocketbook.domain.Reference.ReferenceBook;
+import com.example.pocketbook.domain.Reference.ReferenceRecord;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
