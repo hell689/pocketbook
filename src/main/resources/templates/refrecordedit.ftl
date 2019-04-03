@@ -6,6 +6,7 @@
     ${errorMessage}
 </div>
 </#if>
+<a href="/refbook/${refbookid}">Назад к справочнику</a>
 <h2>Редактирование элемента <span style="color: blue">${refrecord.name}</span></h2>
 <div>
     <div>

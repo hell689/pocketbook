@@ -8,7 +8,7 @@ import java.util.Date;
 @Entity
 public class ChangeBalanceDocument {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotNull
     @Size(min=9)

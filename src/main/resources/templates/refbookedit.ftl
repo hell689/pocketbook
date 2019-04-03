@@ -14,9 +14,11 @@
 <br/>
     <div>Список элементов Справочника:</div>
     <div class order>
-    <div class="header row">
-        <div class="col-md-6" data-orderby="element">Элемент</div>
-    </div>
+        <#if (refrecords?size > 0)>
+            <div class="header row">
+                <div class="col-md-6" data-orderby="element">Элемент</div>
+            </div>
+        </#if>
         <div class="list">
             <#list refrecords as refrecord>
             <div class="col-md-6"><span data-name="element">

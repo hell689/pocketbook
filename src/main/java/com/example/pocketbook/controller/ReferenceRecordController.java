@@ -52,6 +52,7 @@ public class ReferenceRecordController {
             Model model
     ){
         model.addAttribute("refrecord", referenceRecord);
+        model.addAttribute("refbookid", referenceRecord.getReferenceBook().getId());
         return "refrecordedit";
     }
 
