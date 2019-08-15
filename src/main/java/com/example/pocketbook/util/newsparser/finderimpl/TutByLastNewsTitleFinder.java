@@ -10,9 +10,9 @@ import java.util.regex.Pattern;
 
 public class TutByLastNewsTitleFinder implements NewsTitlesFinder {
     private final String TITLE_REGEXP  =
-            "data-vr-contentbox-url=\"([a-z0-9:\\/.]+)\"><span class=\"entry-cnt\"><span class=\"entry-head _title\" " +
-                    "data-vr-headline>([А-Яа-я0-9 \\-,a-z;:.&?!]+)<\\/span><span class=\"entry-meta\">[<>a-z\"\\- =/]+[0-9]+" +
-                    "<\\/span><span class=\"entry-time\"><span data-ctime=\"[0-9]+\">([0-9:]+)<\\/span>";
+            "data-vr-contentbox-url=\\\"([a-z0-9:\\/.]+)\\\"><span class=\\\"entry-cnt\\\"><span class=\\\"entry-head _title\\\" data-vr-headline>" +
+                    "([А-Яа-яA-Z0-9 \\-,a-z;:.&?!]+)<\\/span><span class=\\\"entry-meta\\\">[<>a-z0-9\\\"\\- =\\/]+<\\/span>" +
+                    "<span class=\\\"entry-time\\\"><span data-ctime=\\\"[0-9]+\\\">([0-9:]+)<\\/span>";
 
     @Override
     public List<NewsUrlTimeTitle> getTitlesFromHTML(String htmlString, int countNews) {
