@@ -12,6 +12,9 @@
             <li class="nav-item">
                 <a class="nav-link" href="/refbook">Справочники</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/latestnews">Новости</a>
+            </li>
         </ul>
     </div>
 </nav>
